@@ -17,3 +17,5 @@ matrix:
       r: release
     - os: linux
       r: oldrel
+    - os: osx
+      r: release
