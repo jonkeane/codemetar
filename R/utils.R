@@ -100,7 +100,8 @@ whether_provider_badge <- function(badges, provider_name){
     provider_badge <- FALSE
   }else{
     if(provider_name == "Comprehensive R Archive Network (CRAN)"){
-      provider_badge <- any(grepl("CRAN", badges$text))
+      provider_badge <- any(grepl("cran\\.r-project\\.org",
+                                  badges$link))
     }else{
       if(provider_name == "BioConductor"){
         provider_badge <- any(grepl("bioconductor",
