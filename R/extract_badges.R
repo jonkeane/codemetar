@@ -2,10 +2,11 @@
 
 .extract_badges <- function(path){
   txt <- readLines(path)
+  txt <- stringr::str_c(txt, collapse = " ")
   badges1 <- unlist(stringr::str_match_all(txt, "\\[!\\[\\]\\(.*?\\)\\]\\(.*?\\)"))
   badges2 <- unlist(stringr::str_match_all(txt, "\\[!\\[.*?\\]\\(.*?\\)\\]\\(.*?\\)"))
 
-  md_badges <- c(badges1, badges2)
+  md_badges <- unique(c(badges1, badges2))
 
   md_badges <- unique(do.call(rbind,
                  lapply(md_badges[!is.na(md_badges)], parse_md_badge)))
