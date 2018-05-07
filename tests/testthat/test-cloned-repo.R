@@ -5,7 +5,7 @@ testthat::context("cloned repo")
 testthat::test_that("we can generate codemeta
                     from the root directory of R source code on github",
   {
-
+    skip_on_os("mac")
     skip_on_cran()
     unlink("codemetar_copy", recursive=TRUE)
     git2r::clone("https://github.com/ropensci/codemetar",
