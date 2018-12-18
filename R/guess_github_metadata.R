@@ -50,6 +50,8 @@ add_github_topics <- function(cm){
     topics <- unlist(topics$names)
 
     cm$keywords <- unique(c(cm$keywords, topics))
+  }else{
+    message(as.character(attr(topics, "condition")))
   }
 
   return(cm)

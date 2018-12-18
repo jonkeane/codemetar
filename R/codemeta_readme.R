@@ -93,6 +93,8 @@ guess_readme_url <- function(root) {
   if (! inherits(readme, "try-error")) {
 
     readme$html_url
+  }else{
+    message(as.character(attr(readme, "condition")))
   }
   # else NULL implicitly
 }
