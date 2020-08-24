@@ -42,7 +42,8 @@
 #'
 #' @examples
 #' \donttest{
-#' write_codemeta("codemetar", path = "example_codemetar_codemeta.json")
+#' codemeta <- tempfile()
+#' write_codemeta("codemetar", path = codemeta)
 #' }
 write_codemeta <- function(
   pkg = ".", path = "codemeta.json", root = ".", id = NULL, use_filesize = TRUE,
@@ -63,7 +64,8 @@ write_codemeta <- function(
   # hopefully the user know what they are doing.
   if (in_package && path == codemeta_json) {
 
-    usethis::use_build_ignore(codemeta_json)
+    use_build_ignore(codemeta_json, path = root)
+    message(paste("Added", codemeta_json, "to .Rbuildignore"))
   }
   # Create or update codemeta and save to disk
   create_codemeta(pkg = pkg, root = root, use_filesize = use_filesize,

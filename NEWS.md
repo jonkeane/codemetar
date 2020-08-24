@@ -1,8 +1,15 @@
-# codemetar (development version)
+# codemetar 0.1.10 2020-08-11
+
+* Bugfix: `guess_fileSize()` properly handles `.Rbuildignore` (#299, @ThierryO).
+* Bugfix: `create_codemetar()` handles minimal packages (#298, @ThierryO).
+
+# codemetar 0.1.9 2020-07-16
 
 ## Deprecation
 
 * The use_git_hook argument of write_codemeta() has been deprecated. Solutions for keeping DESCRIPTION and codemeta.json in sync are available in the docs.
+
+* drops `crosswalk`, [#288]
 
 ## Enhancements
 
@@ -13,6 +20,8 @@
 * Adds documentation of internet needs and verbosity to steps downloading information from the web (#270, @Bisaloo)
 
 * New argument `write_minimeta` for `write_codemeta()` indicating whether to also create the file schemaorg.json that  corresponds to the metadata Google would validate, to be inserted to a webpage for SEO. It is saved as "schemaorg.json" alongside `path` (by default, "codemeta.json"). This functionality requires the `jsonld` package (listed under `Suggests`).
+
+* Updated the GitHub action template to only run on pushes to the master branch and added an explanation of how that works to the readme. (@jonkeane)
 
 ## Bug fixes
 
